@@ -1,4 +1,6 @@
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -26,5 +28,42 @@ public class Main {
         mentoria.setData(LocalDate.now());
 
         System.out.println(mentoria);
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("bootcamp Java Developer");
+        bootcamp.setDescricao("Descricao bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        System.out.println("----------------------------------------");
+
+        Dev devCamila = new Dev();
+        devCamila.setNome("Camila");
+        devCamila.inscreverBootcamp(bootcamp);
+        System.out.println("conteudos inscritos Camila" + devCamila.getConteudosInscrito());
+        devCamila.progredir();
+        System.out.println("conteudos inscritos Camila" + devCamila.getConteudosInscrito());
+        System.out.println("conteudos concluids Camila" + devCamila.getConteudosFinalizados());
+        System.out.println(devCamila.calcularTotalXp());
+        devCamila.progredir();
+        System.out.println(devCamila.calcularTotalXp());
+
+        System.out.println("----------------------------------------");
+
+        Dev devPedro = new Dev();
+        devPedro.setNome("Pedro");
+        devPedro.inscreverBootcamp(bootcamp);
+        System.out.println("conteudos inscritos pedro" + devPedro.getConteudosInscrito());
+        devPedro.progredir();
+        System.out.println("conteudos inscritos pedro" + devPedro.getConteudosInscrito());
+        System.out.println("conteudos concluids pedro" + devPedro.getConteudosFinalizados());
+        System.out.println(devPedro.calcularTotalXp());
+        devPedro.progredir();
+        devPedro.progredir();
+        System.out.println(devPedro.calcularTotalXp());
+        System.out.println("conteudos inscritos pedro" + devPedro.getConteudosInscrito());
+        System.out.println("conteudos concluids pedro" + devPedro.getConteudosFinalizados());
+
     }
 }
